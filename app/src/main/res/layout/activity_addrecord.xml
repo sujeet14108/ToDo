@@ -10,7 +10,7 @@
     tools:context="com.example.sujeet.todo.Addrecord">
 
     <TextView
-        android:text="Student Details"
+        android:text="Task Details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/textView25"
@@ -33,7 +33,7 @@
             android:layout_marginRight="100dp"/>
 
         <EditText
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:gravity="left"
             android:layout_height="wrap_content"
             android:id="@+id/Name"/>
@@ -49,10 +49,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Year"
+            android:text="Date"
             android:layout_marginRight="100dp"/>
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/Year"/>
         </LinearLayout>
@@ -71,7 +71,7 @@
             android:text="Description"
             android:layout_marginRight="100dp"/>
     <EditText
-        android:layout_width="100dp"
+        android:layout_width="150dp"
         android:inputType="textMultiLine"
         android:layout_height="wrap_content"
         android:id="@+id/des"/>

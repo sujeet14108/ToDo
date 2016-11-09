@@ -6,10 +6,13 @@ package com.example.sujeet.todo;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,9 +28,10 @@ public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHo
         this.context=context;
         this.studentList = studentList;
     }
-
+    public ImageView m;
 public class MyViewHolder extends RecyclerView.ViewHolder{
     public TextView name, year;
+
 
     public MyViewHolder(final View view) {
         super(view);
@@ -36,10 +40,23 @@ public class MyViewHolder extends RecyclerView.ViewHolder{
 
 
 
+
     }
 
-
 }
+
+  /*  public void onclick(View v) {
+
+
+        if (v.getId() == m.getId()) {
+
+
+            Toast.makeText(v.getContext(), "bell", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }*/
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext())

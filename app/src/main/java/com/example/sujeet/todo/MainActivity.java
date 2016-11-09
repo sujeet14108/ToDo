@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private List<Student> studentList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private StudentAdapter mAdapter;
+    static private StudentAdapter mAdapter;
     DBHelper dbHelper;
 
     @Override
@@ -79,6 +79,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-      
+
+
+    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
+            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+        @Override
+        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+            return false;
+        }
+
+        @Override
+        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction)
+        {
+            /*viewHolder.itemView.setVisibility(View.GONE);
+
+            ReminderArchclass tempremArc;
+            tempremArc=remArc.get(viewHolder.getAdapterPosition());
+
+            remArc.remove(viewHolder.getAdapterPosition());
+            mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
+            mAdapter.notifyItemRangeChanged(viewHolder.getAdapterPosition(),remArc.size());
+
+
+            Delete_item delete_item=new Delete_item(tempremArc);
+            delete_item.execute();*/
+            System.out.println("Sujeey");
+
+        }
+
+    });
+   // swipeToDismissTouchHelper.attachToRecyclerView(listView);
 
 }

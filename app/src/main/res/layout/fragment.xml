@@ -35,18 +35,6 @@
         android:textSize="22sp" />
 
     <TextView
-        android:text="Student Details"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:textStyle="normal|bold"
-        android:textSize="34sp"
-        android:layout_below="@+id/textView"
-        android:layout_alignRight="@+id/textView1"
-        android:layout_alignEnd="@+id/textView1"
-        android:textColor="@android:color/holo_orange_light" />
-
-    <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -74,7 +62,7 @@
         android:textStyle="normal|bold" />
 
     <TextView
-        android:text="Batch"
+        android:text="Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/textView6"
@@ -92,5 +80,19 @@
         android:layout_centerVertical="true"
         android:layout_alignLeft="@+id/textView2"
         android:layout_alignStart="@+id/textView2" />
+
+    <TextView
+        android:text="Task Details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView"
+        android:textStyle="normal|bold"
+        android:textSize="34sp"
+        android:textColor="@android:color/holo_orange_light"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6"
+        android:layout_marginTop="25dp"
+        android:textAlignment="center" />
 
 </RelativeLayout>

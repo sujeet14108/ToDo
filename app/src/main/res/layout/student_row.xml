@@ -1,29 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
     android:layout_height="80dp"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
     android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
+
     android:background="@android:color/background_light"
     android:layout_marginBottom="5dp">
+<!--
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:id="@+id/tick"
+        android:src="@drawable/tick"
+        android:onClick="onclick"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+-->
     <TextView
 
         android:id="@+id/name"
-        android:text="ss"
-        android:layout_marginRight="250dp"
+        android:text="sujeet"
+
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="normal|bold"
-        android:textSize="18sp" />
+        android:textSize="22sp"
+     />
 
     <TextView
         android:id="@+id/year"
-        android:text="ss"
-        android:textSize="18sp"
+        android:text="2014"
+        android:textSize="15sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textStyle="normal|bold" />
+        android:textStyle="normal|bold"
+        android:layout_alignBottom="@+id/name"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp" />
 
-</LinearLayout>
+</RelativeLayout>

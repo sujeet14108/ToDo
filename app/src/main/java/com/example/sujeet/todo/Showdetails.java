@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import java.util.ArrayList;
 
@@ -24,7 +25,9 @@ DBHelper dbHelper;
         String name = intent.getStringExtra("name");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showdetails);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         System.out.println(name+"   "+pos);
         dbHelper = DBHelper.getInstance(getApplicationContext());
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -39,7 +42,11 @@ DBHelper dbHelper;
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(pos);
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        finish();
+        return true;
+    }
 
 
 

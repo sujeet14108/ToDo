@@ -40,12 +40,13 @@ public class PageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment, container, false);
         final TextView textView1 = (TextView) view.findViewById(R.id.textView1);
         final TextView textView2 = (TextView) view.findViewById(R.id.textView2);
+        final TextView textView3 = (TextView) view.findViewById(R.id.textView7);
 
         Student cont= (Student) getArguments().getSerializable("contact");
 
         textView1.setText(cont.getname());
         textView2.setText(cont.getdes());
-
+        textView3.setText(cont.getyear());
         Button btnClick=(Button) view.findViewById(R.id.btnClick);
 
         btnClick.setOnClickListener(new  View.OnClickListener() {
