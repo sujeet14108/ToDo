@@ -1,10 +1,12 @@
 package com.example.sujeet.todo;
 
+import java.io.Serializable;
+
 /**
  * Created by sujeet on 8/11/16.
  */
 
-public class Student {
+public class Student  implements Serializable {
     public String name,des,year;
 
 
