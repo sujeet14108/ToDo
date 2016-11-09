@@ -22,7 +22,7 @@ import static java.security.AccessController.getContext;
 
 public class StudentAdapter extends RecyclerView.Adapter<StudentAdapter.MyViewHolder> {
     private Context context;
-    private List<Student> studentList;
+   public  static List<Student> studentList;
     String n,y;
     public StudentAdapter(Context context,List<Student> studentList) {
         this.context=context;

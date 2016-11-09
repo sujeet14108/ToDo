@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class Addrecord extends AppCompatActivity  {
 
@@ -18,7 +20,13 @@ public class Addrecord extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addrecord);
-
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         dbHelper = DBHelper.getInstance(getApplicationContext());
         name=(EditText)findViewById(R.id.Name);
         year=(EditText)findViewById(R.id.Year);
@@ -34,24 +42,23 @@ public class Addrecord extends AppCompatActivity  {
 
                 if (!name.getText().toString().isEmpty()) {
                     userData.name = name.getText().toString();
-                } else {
-                    userData.name = "";
                 }
                 if (!year.getText().toString().isEmpty()) {
                     userData.year = year.getText().toString();
-                } else {
-                    userData.year = "";
                 }
                 if (!des.getText().toString().isEmpty()) {
                     userData.des = des.getText().toString();
-                } else {
-                    userData.des= "";
                 }
 
 System.out.print(userData +"ssss");
-                dbHelper.insertUserDetail(userData);
+
                 Intent intent=new Intent(Addrecord.this,MainActivity.class);
-                startActivity(intent);
+                if (!name.getText().toString().isEmpty()&&!year.getText().toString().isEmpty()&&!des.getText().toString().isEmpty()) {
+                    dbHelper.insertUserDetail(userData);
+                    startActivity(intent);
+                }
+                else
+                    Toast.makeText(getApplicationContext(), "Fill Empty Details ", Toast.LENGTH_SHORT).show();
             }
         });
             }

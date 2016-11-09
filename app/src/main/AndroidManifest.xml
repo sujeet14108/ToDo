@@ -15,8 +15,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Addrecord" />
-        <activity android:name=".Showdetails"></activity>
+        <activity android:name=".Addrecord" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Showdetails" android:parentActivityName=".MainActivity"></activity>
     </application>
 
 </manifest>

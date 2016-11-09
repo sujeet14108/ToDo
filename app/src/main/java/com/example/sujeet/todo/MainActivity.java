@@ -1,6 +1,9 @@
 package com.example.sujeet.todo;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -18,9 +21,9 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Student> studentList = new ArrayList<>();
+
     private RecyclerView recyclerView;
-    static private StudentAdapter mAdapter;
+    private StudentAdapter mAdapter;
     DBHelper dbHelper;
 
     @Override
@@ -41,11 +44,12 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(mAdapter);
 
-        recyclerView.addOnItemTouchListener(
+
+        /*recyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(getApplicationContext(), new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        System.out.println("yo budyy");
+
                         Intent intent = new Intent(getApplicationContext(), Showdetails.class);
                         intent.putExtra("pos", position);
                         //   intent.putParcelableArrayListExtra("todo_item_list",todo_item_list);
@@ -54,7 +58,32 @@ public class MainActivity extends AppCompatActivity {
                         // TODO Handle item click
                     }
                 })
-        );
+        );*/
+        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getApplicationContext(), recyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                // ...
+                Intent intent = new Intent(getApplicationContext(), Showdetails.class);
+                intent.putExtra("pos", position);
+                //   intent.putParcelableArrayListExtra("todo_item_list",todo_item_list);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onItemLongClick(View view, int position) {
+                // ...
+
+                System.out.println("yooooooooooo");
+
+                AlertDialog diaBox = AskOption(position);
+                diaBox.show();
+
+
+
+
+            }
+        }));
+
     }
 
 
@@ -81,33 +110,56 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-    ItemTouchHelper swipeToDismissTouchHelper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(
-            ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
-        @Override
-        public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-            return false;
-        }
-
-        @Override
-        public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction)
-        {
-            /*viewHolder.itemView.setVisibility(View.GONE);
-
-            ReminderArchclass tempremArc;
-            tempremArc=remArc.get(viewHolder.getAdapterPosition());
-
-            remArc.remove(viewHolder.getAdapterPosition());
-            mAdapter.notifyItemRemoved(viewHolder.getAdapterPosition());
-            mAdapter.notifyItemRangeChanged(viewHolder.getAdapterPosition(),remArc.size());
 
 
-            Delete_item delete_item=new Delete_item(tempremArc);
-            delete_item.execute();*/
-            System.out.println("Sujeey");
+    private AlertDialog AskOption(final int p)
+    {
+        AlertDialog myQuittingDialogBox =new AlertDialog.Builder(this)
+                //set message, title, and icon
+                .setTitle("Delete")
+                .setMessage("Do you want to Delete")
+                .setIcon(R.drawable.tick)
 
-        }
+                .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
 
-    });
-   // swipeToDismissTouchHelper.attachToRecyclerView(listView);
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        //your deleting code
+
+                        String s=StudentAdapter.studentList.get(p).name;
+                        System.out.println(StudentAdapter.studentList.get(p).name);
+                       StudentAdapter.studentList.remove(p);
+                        mAdapter.notifyItemRemoved(p);
+                        dbHelper.deleteRow(s);
+
+
+
+
+
+
+
+
+
+
+
+
+                        dialog.dismiss();
+                    }
+
+                })
+
+
+
+                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        dialog.dismiss();
+
+                    }
+                })
+                .create();
+        return myQuittingDialogBox;
+
+    }
+
 
 }

@@ -25,9 +25,13 @@ DBHelper dbHelper;
         String name = intent.getStringExtra("name");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showdetails);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        Toolbar toolbar=(Toolbar)findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        // add back arrow to toolbar
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
         System.out.println(name+"   "+pos);
         dbHelper = DBHelper.getInstance(getApplicationContext());
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
@@ -42,11 +46,8 @@ DBHelper dbHelper;
         mViewPager.setAdapter(mMyFragmentPagerAdapter);
         mViewPager.setCurrentItem(pos);
     }
-    @Override
-    public boolean onSupportNavigateUp() {
-        finish();
-        return true;
-    }
+
+
 
 
 
