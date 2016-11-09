@@ -4,8 +4,7 @@
 
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_addrecord"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Size_Full"
 
 
     tools:context="com.example.sujeet.todo.Addrecord">
@@ -97,7 +96,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
+        style="@style/Box"
         android:id="@+id/save"
         android:text="Save"
      />

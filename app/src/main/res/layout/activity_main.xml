@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="@style/Size_Full"
     android:fitsSystemWindows="true"
 
     tools:context="com.example.sujeet.todo.MainActivity">

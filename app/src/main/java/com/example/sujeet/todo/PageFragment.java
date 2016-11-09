@@ -54,7 +54,7 @@ public class PageFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(), "Clciked "+textView1.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Selected "+textView1.getText().toString(), Toast.LENGTH_SHORT).show();
 
             }
         });
